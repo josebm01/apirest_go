@@ -14,4 +14,4 @@ Para la conexión a la bd (mysql):
 
 
 Para levantar servidor
-air
+* air
