@@ -19,7 +19,7 @@ func GetUsers(rw http.ResponseWriter, r *http.Request) {
 	rw.Header().Set("Content-Type", "application/json")
 
 	db.Connect()
-	users := models.ListUsers()
+	users, _ := models.ListUsers()
 	db.Close()
 
 	// respondiendo al cliente con json
@@ -40,7 +40,7 @@ func GetUser(rw http.ResponseWriter, r *http.Request) {
 	userId, _ := strconv.Atoi(vars["id"])
 
 	db.Connect()
-	users := models.GetUsers(userId)
+	users, _ := models.GetUser(userId)
 	db.Close()
 
 	// respondiendo al cliente con json
@@ -119,7 +119,7 @@ func DeleteUser(rw http.ResponseWriter, r *http.Request) {
 	userId, _ := strconv.Atoi(vars["id"])
 
 	db.Connect()
-	user := models.GetUsers(userId)
+	user, _ := models.GetUser(userId)
 	user.Delete()
 	db.Close()
 
