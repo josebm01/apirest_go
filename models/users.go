@@ -6,10 +6,12 @@ import (
 
 // campos
 type User struct {
-	Id       int64
-	Username string
-	Password string
-	Email    string
+
+	// agregando alias para que el cliente lo reciba con minúscula en el JSON
+	Id       int64 `json:"id"`
+	Username string `json:"username"`
+	Password string `json:"password"`
+	Email    string `json:"email"`
 }
 
 type Users []User
